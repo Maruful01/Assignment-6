@@ -43,7 +43,6 @@ const showImages = (images) => {
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
     div.innerHTML = ` <img class="img-fluid img-thumbnail" id ="image-tag" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
     <p class= "img-tag">${image.tags} <br> <span class= "views">views: </span> ${image.views}  </p>`;
-    console.log (image.id)
     //Extra part 2 ^^^^^^ ------------------------------------------
     gallery.appendChild(div)
     setTimeout (inputTimeOut("search"), 1000);
@@ -65,7 +64,6 @@ const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle('added');
  let item = sliders.indexOf(img);
- console.log (img);
   if (item === -1) {
     sliders.push(img);
   } 
@@ -99,7 +97,6 @@ const createSlider = () => {
     document.querySelector('.main').style.display = 'none';
     document.querySelector('.duration-alert').style.display = 'block';
   }
-  console.log ("Sliders :" + sliders)
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";

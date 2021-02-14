@@ -1,9 +1,12 @@
 #sliders {
-  height: 400px;
+  height: 400px !important;
   width: 60%;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+}
+#sliders img {
+  height: 450px !important;
 }
 
 .gallery-header {
@@ -17,6 +20,11 @@
 .img-thumbnail {
   cursor: pointer;
   z-index: 0 !important;
+  transition: 1s;
+}
+.img-thumbnail:hover {
+  filter: grayscale(100%);
+  transform: scale(1.1);
 }
 
 .img-tag {
@@ -29,7 +37,8 @@
   display: block;
   opacity: 100%;
   animation-name: sample;
-  animation-duration: 2s;
+  animation-duration: 3s;
+  transition: 1s;
 }
 @keyframes sample {
   0% {opacity: 0%;}
@@ -37,7 +46,6 @@
 }
 .img-tag:hover {
   display: none;
-
 }
 .added {
   border: 2px solid #1e1743;
@@ -45,7 +53,7 @@
 }
 
 img {
-  height: 450px;
+  height: 300px !important;
   object-fit: cover;
 }
 

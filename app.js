@@ -1,5 +1,5 @@
 
-// Input value timeOut function ------------ extra part 1----------
+// Input value timeOut function ------------ extra part ----------
 function inputTimeOut (id) {
     document.getElementById (id).value = " ";
 }
@@ -14,7 +14,7 @@ document.getElementById ("search").addEventListener ("keypress", function (event
   if (event.key === 'Enter') {
     document.getElementById ("search-btn").click ();
     setTimeout (inputTimeOut("search"), 1000);
-    //Extra part 1 ^^^^^^ ------------------------------------------
+    //Extra part  ^^^^^^ ------------------------------------------
 }
 })
 const imagesArea = document.querySelector('.images');

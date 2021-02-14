@@ -1,12 +1,18 @@
 
+// Input value timeOut function ------------ extra part 1----------
+function inputTimeOut (id) {
+    document.getElementById (id).value = " ";
+}
+// extra part----------
+
 // Enter button click 
 document.getElementById ("search").addEventListener ("keypress", function (event) {
   if (event.key === 'Enter') {
     document.getElementById ("search-btn").click ();
+    setTimeout (inputTimeOut("search"), 1000);
+    //Extra part 1 ^^^^^^ ------------------------------------------
 }
 })
-
-
 const imagesArea = document.querySelector('.images');
 const gallery = document.querySelector('.gallery');
 const galleryHeader = document.querySelector('.gallery-header');
@@ -31,8 +37,12 @@ const showImages = (images) => {
   images.forEach(image => {
     let div = document.createElement('div');
     div.className = 'col-lg-3 col-md-4 col-xs-6 img-item mb-2';
-    div.innerHTML = ` <img class="img-fluid img-thumbnail" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">`;
+    div.innerHTML = ` <img class="img-fluid img-thumbnail" id ="image-tag" onclick=selectItem(event,"${image.webformatURL}") src="${image.webformatURL}" alt="${image.tags}">
+    <p class= "img-tag">${image.tags} <br> <span class= "views">views: </span> ${image.views}  </p>`;
+    //Extra part 2 ^^^^^^ ------------------------------------------
     gallery.appendChild(div)
+    setTimeout (inputTimeOut("search"), 1000);
+    //Extra part 1 ^^^^^^ ------------------------------------------
   })
 
 }
@@ -40,7 +50,7 @@ const showImages = (images) => {
 const getImages = (query) => {
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
-    .then(data =>  showImages(data.hits))
+    .then(data => showImages(data.hits))
     .catch(err => console.log(err))
 }
 
@@ -48,7 +58,6 @@ let slideIndex = 0;
 const selectItem = (event, img) => {
   let element = event.target;
   element.classList.toggle('added');
- 
  let item = sliders.indexOf(img);
   if (item === -1) {
     sliders.push(img);
@@ -79,6 +88,7 @@ const createSlider = () => {
   // hide image aria
   imagesArea.style.display = 'none';
   const duration = document.getElementById('duration').value || 1000;
+  setTimeout (inputTimeOut("duration"), 1000);
   if (duration <= 0) {
     document.querySelector('.main').style.display = 'none';
     document.querySelector('.duration-alert').style.display = 'block';

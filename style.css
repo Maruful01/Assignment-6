@@ -16,15 +16,36 @@
 
 .img-thumbnail {
   cursor: pointer;
+  z-index: 0 !important;
 }
 
+.img-tag {
+  text-align: center;
+  position: relative;
+  top: -50px;
+  background-color: #2a2c2c55;
+  color: white;
+  cursor: pointer;
+  display: block;
+  opacity: 100%;
+  animation-name: sample;
+  animation-duration: 2s;
+}
+@keyframes sample {
+  0% {opacity: 0%;}
+  100% {opacity: 100%;}
+}
+.img-tag:hover {
+  display: none;
+
+}
 .added {
   border: 2px solid #1e1743;
   border-radius: 5px;
 }
 
 img {
-  height: 400px;
+  height: 450px;
   object-fit: cover;
 }
 
@@ -60,6 +81,9 @@ img {
   color: red;
   text-align: center;
   margin-top: 50px;
+}
+.views {
+  color: green;
 }
 
 @media (max-width: 767px) {

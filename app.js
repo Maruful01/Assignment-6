@@ -3,6 +3,10 @@
 function inputTimeOut (id) {
     document.getElementById (id).value = " ";
 }
+const displaySpinner =  () => {
+  const spinner = document.getElementById ("spinner-loding");
+  spinner.classList.toggle ("invisible");
+}
 // extra part----------
 
 // Enter button click 
@@ -44,10 +48,11 @@ const showImages = (images) => {
     setTimeout (inputTimeOut("search"), 1000);
     //Extra part 1 ^^^^^^ ------------------------------------------
   })
-
+  displaySpinner ();
 }
 
 const getImages = (query) => {
+  displaySpinner ();
   fetch(`https://pixabay.com/api/?key=${KEY}=${query}&image_type=photo&pretty=true`)
     .then(response => response.json())
     .then(data => showImages(data.hits))
